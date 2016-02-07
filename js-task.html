@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JS task</title>
+
+    <style type="text/css" >
+        #hor-menu, #hor-menu ul {
+            list-style:none;
+            padding:0;
+            margin:0;
+        }
+        #hor-menu li {
+            float:left;
+            position:relative;
+            line-height:2.5em;
+            width:200px;
+        }
+        #hor-menu li ul {
+            position:absolute;
+            margin-top:0;
+            margin-left:0;
+            display:none;
+        }
+
+        /*
+        #hor-menu li:hover ul {
+            display:block;
+        }
+        */
+        
+        #hor-menu a {
+            display:block;
+            border-right:1px solid #fff;
+            background:#faf2cc;
+            color:#3B3B3B;
+            text-decoration:none;
+            padding:0 10px;
+        }
+        #hor-menu a:hover {
+            background-color:#eea236;
+            color:#fff;
+        }
+        #hor-menu ul {
+            border-top:1px solid #fff;
+        }
+        #hor-menu ul a {
+            border-right:none;
+            border-right:1px solid #fff;
+            border-bottom:1px solid #fff;
+            border-left:1px solid #fff;
+            background:#faf2cc;
+        }
+
+        #hor-menu {
+            z-index:1;
+        }
+        #hor-menu ul {
+            z-index:2;
+        }
+
+        body {
+
+            position: relative;
+            box-sizing: border-box;
+            min-height: 600px;
+            padding: 15px;
+            margin: 0;
+        }
+
+        .overlay {
+
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+            top: 0;
+            left: 0;
+        }
+
+        .modal {
+            position: absolute;
+            z-index: 2;
+            left: 40%;
+            top: 20%;
+            background: #EFEFEF;
+            border: 1px solid #000;
+            padding: 50px;
+            text-align: center;
+            display: none;
+        }
+
+        .close {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <h1>Click</h1>
+    <ul id="hor-menu">
+        <li><a href="#" class="selected">Homepage</a></li>
+        <li><a href="#" onclick="switchSubmenu();" >About</a>
+            <ul id="submenu-1" >
+                <li><a href="#" >Some item</a></li>
+                <li><a href="#" >Lorem ipsum</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <br><br>
+
+    <h1>Hover</h1>
+    <ul id="hor-menu">
+        <li><a href="#" class="selected">Homepage</a></li>
+        <li><a href="#" onmouseover="openSubmenu2('submenu-2');" onmouseout="hideSubmenu2('submenu-2');" >About</a>
+            <ul id="submenu-2" onmouseover="openSubmenu2('submenu-2');" onmouseout="hideSubmenu2('submenu-2');" >
+                <li><a href="#" >Some item</a></li>
+                <li><a href="#" >Lorem ipsum</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <br><br><br><br>
+
+    <div class="overlay" onclick="closeModal();" ></div>
+
+    <div class="modal" >
+        <a href="" class="close" onclick="closeModal();" >X</a>
+        <img src="http://flowers.iq/static/images/sample_3.jpg" />
+        <p>Some content here!</p>
+    </div>
+
+    <button onclick="showModal();" >Show modal</button>
+
+<script type="text/javascript" src="js/task.js"></script>
+</body>
+</html>
